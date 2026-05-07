@@ -4,144 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACB - Association du Counseling Biblique</title>
-    
     <link rel="icon" type="image/png" href="images/favicon.png">
 
     <style>
-        /* 1. POLICE ET VARIABLES */
-        @font-face {
-            font-family: 'Metropolis';
-            src: url('fonts/Metropolis-Regular.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-
+        /* 1. SETUP & VARIABLES */
+        @font-face { font-family: 'Metropolis'; src: url('fonts/Metropolis-Regular.woff2') format('woff2'); }
         :root {
             --main-color: #2c4c64;
-            --font-family: 'Metropolis', sans-serif;
             --accent-color: #ed6d5f;
             --bg-glass: rgba(255, 255, 255, 0.95);
+            --font-family: 'Metropolis', sans-serif;
+            /* Couleurs Accompagnement */
+            --c1: #4a90e2; --c2: #7ed321; --c3: #f5a623; --c4: #9013fe;
         }
 
         html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-family);
-            color: #333;
-            background-image: url('images/fond.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        body { 
+            margin: 0; font-family: var(--font-family); color: #333;
+            background: url('images/fond.png') fixed center/cover no-repeat;
         }
 
-        /* 2. HEADER ET NAVIGATION */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            z-index: 1000;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .navbar-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-        }
-
+        /* 2. NAVIGATION */
+        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .navbar-container { display: flex; align-items: center; justify-content: center; padding: 0 40px; max-width: 1400px; margin: 0 auto; position: relative; }
         .logo-box { position: absolute; left: 40px; }
-        .logo-box img { height: 45px; display: block; }
+        .logo-box img { height: 45px; }
 
-        #mobile-menu-check { display: none; }
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
-        .menu-toggle span { display: block; width: 25px; height: 3px; background-color: var(--main-color); transition: 0.3s; }
-
-        .nav-links { display: flex; list-style: none; margin: 0; padding: 0; gap: 30px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; padding: 0; }
         .nav-item { position: relative; }
-        .nav-link { text-decoration: none; color: var(--main-color); font-size: 15px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .nav-link { text-decoration: none; color: var(--main-color); font-size: 15px; font-weight: 500; transition: 0.3s; cursor: pointer; }
         .nav-link:hover { color: var(--accent-color); }
 
-        /* SOUS-MENU MISSION */
-        #mission-toggle { display: none; }
+        /* DROPDOWN PC */
         .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--bg-glass);
-            list-style: none;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            min-width: 220px;
-            margin-top: 10px;
-            z-index: 1000;
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: var(--bg-glass); padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 220px; margin-top: 10px; list-style: none;
         }
-        .dropdown-item a { text-decoration: none; color: var(--main-color); font-size: 15px; display: block; padding: 8px 0; }
-        .dropdown-item a:hover { color: var(--accent-color); }
         #mission-toggle:checked ~ .dropdown-menu { display: block; }
+        .dropdown-item a { text-decoration: none; color: var(--main-color); display: block; padding: 8px 0; font-size: 15px; }
 
-        /* 3. STRUCTURE DES SECTIONS */
+        /* 3. LAYOUT ET GRILLES */
         .main-column { width: 55%; margin: 0 auto; padding-top: 140px; }
-        section { min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 60px 0; }
+        section { min-height: 60vh; display: flex; align-items: center; padding: 60px 0; }
         .glass-panel { background: var(--bg-glass); padding: 50px 40px; width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        h2 { color: var(--main-color); font-size: 2.2em; text-align: center; margin-bottom: 30px; }
+        p { line-height: 1.8; color: #444; text-align: center; }
 
-        h2 { color: var(--main-color); font-size: 2.2em; margin-bottom: 30px; text-align: center; }
-        p { line-height: 1.8; color: #444; font-size: 1.1em; text-align: center; }
-
-        /* BOXES DE FORMATION */
-        .formation-grid {
-            display: flex;
-            gap: 25px;
-            margin-top: 40px;
-            text-align: left;
+        .grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .card { 
+            background: rgba(255,255,255,0.7); padding: 25px; border-radius: 10px; 
+            border-top: 5px solid var(--main-color); box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
         }
-        .formation-box {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-            border-top: 4px solid var(--main-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .formation-box h3 { color: var(--main-color); margin-top: 0; font-size: 1.4em; }
-        .formation-box ul { padding-left: 20px; color: #555; }
-        .formation-box li { margin-bottom: 10px; line-height: 1.5; }
+        .card h3 { color: var(--main-color); margin-top: 0; font-size: 1.3em; }
+        .card ul { padding-left: 20px; color: #555; font-size: 0.95em; }
+        .card li { margin-bottom: 8px; }
 
         /* 4. FOOTER */
-        footer#contact { background-color: white; padding: 80px 0; margin-top: 100px; border-top: 1px solid #eee; }
+        footer { background: white; padding: 80px 0; margin-top: 100px; border-top: 1px solid #eee; }
         .contact-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; gap: 40px; padding: 0 20px; }
-        .contact-column { flex: 1; }
-        .contact-column h3 { color: var(--main-color); margin-bottom: 25px; font-size: 18px; }
-        .contact-column a, .contact-column p { display: flex; align-items: flex-start; gap: 12px; text-decoration: none; color: #555; font-size: 14px; margin: 12px 0; }
-        .address-stack { display: flex; flex-direction: column; }
-        .icon { width: 20px; text-align: center; color: var(--main-color); }
+        .contact-column h3 { color: var(--main-color); font-size: 18px; }
+        .contact-column a, .contact-column p { display: flex; gap: 12px; text-decoration: none; color: #555; font-size: 14px; margin: 12px 0; }
 
-        /* 5. ADAPTATION MOBILE */
+        /* 5. RESPONSIVE */
+        #mobile-menu-check, #mission-toggle { display: none; }
         @media (max-width: 1100px) { .main-column { width: 90%; } }
         @media (max-width: 900px) {
-            .navbar-container { justify-content: space-between; padding: 0 20px; }
-            .logo-box { position: static; }
-            .menu-toggle { display: flex; }
-            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-            .nav-links { flex-direction: column; gap: 0; }
-            .nav-link { display: block; padding: 18px; border-bottom: 1px solid #f5f5f5; text-align: center; }
+            .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+            .menu-toggle span { width: 25px; height: 3px; background: var(--main-color); }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; }
             #mobile-menu-check:checked ~ nav { display: block; }
-            .dropdown-menu { position: static; transform: none; box-shadow: none; background-color: #fafafa; width: 100%; padding: 10px 0; margin-top: 0; }
-            .formation-grid { flex-direction: column; }
-            .contact-container { flex-direction: column; align-items: center; text-align: center; }
-            .contact-column a, .contact-column p { flex-direction: column; align-items: center; }
+            .nav-links { flex-direction: column; gap: 0; }
+            .nav-link { display: block; padding: 18px; border-bottom: 1px solid #eee; text-align: center; }
+            .dropdown-menu { position: static; transform: none; box-shadow: none; width: 100%; padding: 10px 0; }
+            .contact-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -149,15 +86,9 @@
 
     <header>
         <div class="navbar-container">
-            <div class="logo-box">
-                <img src="images/logo.png" alt="Logo ACB">
-            </div>
-
+            <div class="logo-box"><img src="images/logo.png" alt="Logo ACB"></div>
             <input type="checkbox" id="mobile-menu-check">
-            <label for="mobile-menu-check" class="menu-toggle">
-                <span></span><span></span><span></span>
-            </label>
-
+            <label for="mobile-menu-check" class="menu-toggle"><span></span><span></span><span></span></label>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#presentation" class="nav-link">Présentation</a></li>
@@ -190,29 +121,23 @@
         <section id="formations">
             <div class="glass-panel">
                 <h2>Nos Formations</h2>
-                <p>Nous proposons deux cursus différents, structuré pour équiper chaque personne selon son appel et son engagement.</p>
-                
-                <div class="formation-grid">
-                    <div class="formation-box">
+                <div class="grid-box">
+                    <div class="card">
                         <h3>Certificat</h3>
-                        <p style="text-align:left; font-size: 0.95em; font-style: italic;">Pour un ministère informel en église.</p>
+                        <p style="text-align:left; font-size: 0.9em; font-style: italic;">Informel en église</p>
                         <ul>
-                            <li>5 cours de <strong>théologie</strong> dont 3 au choix</li>
-                            <li>5 cours de <strong>counseling biblique</strong></li>
+                            <li>5 cours de théologie</li>
+                            <li>5 cours de counseling</li>
                         </ul>
-                        <p style="text-align:left; font-size: 0.95em; font-style: italic;">Objectif : Devenir artisant du counseling biblique informel dans l'église local.</p>
                     </div>
-
-                    <div class="formation-box" style="border-top-color: var(--accent-color);">
+                    <div class="card" style="border-top-color: var(--accent-color);">
                         <h3>Diplôme</h3>
-                        <p style="text-align:left; font-size: 0.95em; font-style: italic;">Pour un ministère structuré.</p>
+                        <p style="text-align:left; font-size: 0.9em; font-style: italic;">Ministère structuré</p>
                         <ul>
-                            <li>15 cours de <strong>théologie</strong></li>
-                            <li>11 cours de <strong>counseling biblique</strong></li>
-                            <li>2 séminaires <strong>(IBG ou E21)</strong></li>
-                            <li>1 stage pratique <strong>(église ou FCB)</strong></li>
+                            <li>15 cours de théologie</li>
+                            <li>11 cours de counseling</li>
+                            <li>Stages et séminaires</li>
                         </ul>
-                        <p style="text-align:left; font-size: 0.95em; font-style: italic;">Objectif : Envisager un ministère de counseling biblique dans un centre / dans l'église local.</p>
                     </div>
                 </div>
             </div>
@@ -220,25 +145,20 @@
 
         <section id="soutien">
             <div class="glass-panel">
-                <h2>Le soutien aux églises</h2>
-                <p>Accompagner par des évalutaitions :</p>
-                
-                <div class="formation-grid">
-                    <div class="formation-box">
-                        <h3>Couples pastraux / anciens</h3>
+                <h2>Soutien aux églises</h2>
+                <div class="grid-box">
+                    <div class="card">
+                        <h3>Couples pastoraux</h3>
                         <ul>
-                            <li>Mieux appréhender le ministère et ses impacts sur le couple / la vie de famille.</li>
-                            <li>Dans la prévention des conflits.</strong></li>
+                            <li>Prévention des conflits</li>
+                            <li>Impacts sur la vie de famille</li>
                         </ul>
                     </div>
-
-                    <div class="formation-box" style="border-top-color: var(--accent-color);">
-                        <h3>Conseils d’anciens / conseils d’église</h3>
+                    <div class="card" style="border-top-color: var(--accent-color);">
+                        <h3>Conseils d'église</h3>
                         <ul>
-                            <li>Mieux <strong>se comprendre</strong> en équipe.</li>
-                            <li>Mieux <strong>se partager</strong> les tâches.</li>
-                            <li>Mieux <strong>fonctionner</strong> en équipe.</li>
-                            <li>Mieux <strong>communiquer</strong> ensemble.</li>
+                            <li>Fonctionnement d'équipe</li>
+                            <li>Communication et partage</li>
                         </ul>
                     </div>
                 </div>
@@ -248,21 +168,32 @@
         <section id="accompagnement">
             <div class="glass-panel">
                 <h2>Accompagnement</h2>
-                <p>Besoin d'aide ? Nos conseillers formés vous reçoivent pour des entretiens basés sur l'écoute, la prière et la sagesse biblique.</p>
+                <p>Un soutien biblique basé sur l'écoute et la prière.</p>
+                <div class="grid-box">
+                    <div class="card" style="border-top-color: var(--c1);">
+                        <h3>Écoute</h3>
+                        <ul><li>Cadre confidentiel</li><li>Accueil bienveillant</li></ul>
+                    </div>
+                    <div class="card" style="border-top-color: var(--c2);">
+                        <h3>Sagesse</h3>
+                        <ul><li>Éclairage biblique</li><li>Aide à la décision</li></ul>
+                    </div>
+                    <div class="card" style="border-top-color: var(--c3);">
+                        <h3>Épreuves</h3>
+                        <ul><li>Deuil et souffrance</li><li>Réconfort spirituel</li></ul>
+                    </div>
+                    <div class="card" style="border-top-color: var(--c4);">
+                        <h3>Famille</h3>
+                        <ul><li>Relation de couple</li><li>Parentalité</li></ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="soutenir">
             <div class="glass-panel">
                 <h2>Nous soutenir</h2>
-                <p>L'ACB vit de vos dons. Votre générosité permet de financer la traduction de ressources et la formation de nouveaux conseillers.</p>
-            </div>
-        </section>
-
-        <section id="newsletter">
-            <div class="glass-panel">
-                <h2>Newsletter</h2>
-                <p>Inscrivez-vous pour recevoir nos derniers articles et les dates des prochains séminaires de formation.</p>
+                <p>L'ACB vit de vos dons. Votre générosité permet de financer la traduction de ressources.</p>
             </div>
         </section>
     </div>
@@ -271,40 +202,24 @@
         <div class="contact-container">
             <div class="contact-column">
                 <h3>Contact</h3>
-                <a href="https://www.counselingbiblique.org" target="_blank"><span class="icon">🌐</span> counselingbiblique.org</a>
-                <p><span class="icon">👤</span> David Bouvier</p>
-                <a href="mailto:info@counselingbiblique.org"><span class="icon">✉</span> info@counselingbiblique.org</a>
-                <a href="tel:+41764834056"><span class="icon">📱</span> +41 76 483 40 56</a>
+                <a href="#">🌐 counselingbiblique.org</a>
+                <p>👤 David Bouvier</p>
+                <a href="mailto:info@counselingbiblique.org">✉ info@counselingbiblique.org</a>
             </div>
-
             <div class="contact-column">
-                <h3>Centre de counseling</h3>
-                <div class="address-stack">
-                    <strong>Eglise Action Biblique</strong>
-                    <span>Rue de la Servette 21, 1201 Genève</span>
-                </div>
+                <h3>Centre</h3>
+                <p><strong>Action Biblique</strong><br>Rue de la Servette 21, Genève</p>
             </div>
-
             <div class="contact-column">
-                <h3>Siège social</h3>
-                <div class="address-stack">
-                    <strong>ACB Suisse</strong>
-                    <span>Route de la Capite 120, 1253 Vandoeuvres</span>
-                </div>
+                <h3>Siège</h3>
+                <p><strong>ACB Suisse</strong><br>Route de la Capite 120, Vandoeuvres</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Fermeture automatique du menu mobile lors du clic sur un lien
-        const navLinks = document.querySelectorAll('.nav-links a');
         const menuCheck = document.getElementById('mobile-menu-check');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuCheck.checked = false;
-            });
-        });
+        document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => menuCheck.checked = false));
     </script>
-
 </body>
+</html>
