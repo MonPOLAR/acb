@@ -171,6 +171,7 @@ header {
 .dropdown-item a {
     text-decoration: none;
     color: var(--main-color);
+    position: absolute;
     display: block;
     padding: 8px 0;
     font-size: 15px;
@@ -294,50 +295,6 @@ p {
     margin-top: 5px;
     font-weight: bold;
 }
-
-
-/* ────────────────────────────────────────────────────────────
-   8. LISTE EN 2 COLONNES (commentaires / points)
-   ──────────────────────────────────────────────────────────── */
-
-.comment-list,
-.comment-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.comment-grid {
-    margin-top: 20px;
-}
-
-.comment-list li,
-.comment-grid li {
-    font-size: 0.95em;
-    line-height: 1.4;
-    position: relative;
-    padding-left: 20px;
-    text-align: left;
-}
-
-.comment-grid li {
-    font-size: 0.9em;
-    padding-left: 15px;
-}
-
-/* Puce personnalisée */
-.comment-list li::before,
-.comment-grid li::before {
-    content: "•";
-    color: var(--accent-color);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
 
 /* ────────────────────────────────────────────────────────────
    9. FOOTER / CONTACT
