@@ -421,8 +421,7 @@ footer#contact {
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
-        position: absolute;
-        right: 40px;
+        margin-left: auto;
     }
 
     .menu-toggle span {
