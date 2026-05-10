@@ -102,25 +102,21 @@
             .grid-box { grid-template-columns: 1fr; } /* Passage en 1 colonne sur petit mobile */
         }
         
-.panel-soutenir {
-    position: relative;
-    padding-bottom: 60px; /* Espace pour ne pas que le texte cache le QR code sur petit écran */
-}
-
-.qr-container {
-    position: absolute;
-    bottom: 20px;
-    right: 25px;
-    text-align: center;
-}
-
-.qr-code {
-    width: 90px; /* Taille légèrement réduite pour mieux s'intégrer */
-    height: 90px;
-    background: white;
-    padding: 5px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.panel-soutenir { padding-bottom: 80px; } /* Espace pour le QR */
+        .qr-container {
+            position: absolute;
+            bottom: 25px;
+            right: 40px;
+            text-align: center;
+        }
+        .qr-code {
+            width: 90px;
+            height: 90px;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 }
 
 .qr-label {
