@@ -415,12 +415,14 @@ footer#contact {
 }
 
 @media (max-width: 900px) {
-    /* Hamburger menu */
+    /* Hamburger menu — positionné à droite */
     .menu-toggle {
         display: flex;
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
+        position: absolute;
+        right: 40px;
     }
 
     .menu-toggle span {
