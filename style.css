@@ -415,13 +415,21 @@ footer#contact {
 }
 
 @media (max-width: 900px) {
-    /* Hamburger menu — positionné à droite */
+    /* Navbar mobile : logo à gauche, burger à droite */
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .logo-box {
+        position: static;
+    }
+
+    /* Hamburger menu */
     .menu-toggle {
         display: flex;
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
-        margin-left: auto;
     }
 
     .menu-toggle span {
