@@ -5,13 +5,14 @@
 
 
 /* ────────────────────────────────────────────────────────────
-   1. FERMETURE DU MENU MOBILE AU CLIC SUR UN LIEN
+   1. GESTION DES MENUS
    ──────────────────────────────────────────────────────────── */
 
 document.addEventListener('DOMContentLoaded', () => {
 
     const mobileMenuCheck = document.getElementById('mobile-menu-check');
     const missionToggle   = document.getElementById('mission-toggle');
+    const dropdownMenu    = document.querySelector('.dropdown-menu');
 
 
     /* ── 1. Fermeture du dropdown Mission au clic sur un sous-lien (desktop) ── */
@@ -21,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             if (missionToggle) {
                 missionToggle.checked = false;
+                /* Force le masquage immédiat sans attendre le repaint CSS */
+                if (dropdownMenu) dropdownMenu.style.display = 'none';
+                /* On retire le style inline après un court délai pour
+                   laisser la checkbox reprendre le contrôle */
+                setTimeout(() => {
+                    if (dropdownMenu) dropdownMenu.style.display = '';
+                }, 300);
             }
         });
     });
@@ -31,12 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     allNavLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (mobileMenuCheck) {
-                mobileMenuCheck.checked = false;
-            }
-            if (missionToggle) {
-                missionToggle.checked = false;
-            }
+            if (mobileMenuCheck) mobileMenuCheck.checked = false;
+            if (missionToggle)   missionToggle.checked   = false;
         });
     });
 
