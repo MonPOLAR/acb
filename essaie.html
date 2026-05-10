@@ -11,17 +11,17 @@
         @font-face { font-family: 'Metropolis'; src: url('fonts/Metropolis-Regular.woff2') format('woff2'); }
         
         :root {
-            --main-color: #2c4c64;
-            --accent-color: #ed6d5f;
+            --main-color: #130027;
+            --accent-color: #130027;
             --bg-glass: rgba(255, 255, 255, 0.95);
-            --font-family: 'Metropolis', sans-serif;
+            --font-family: 'Metropolis';
             /* Couleurs des bordures Accompagnement */
-            --c1: #4a90e2; --c2: #7ed321; --c3: #f5a623; --c4: #9013fe;
+            --c1: #ed6d5f; --c2: #791f73; --c3: #e94b54; --c4: #af2e68;
         }
 
         html { scroll-behavior: smooth; }
         body { 
-            margin: 0; font-family: var(--font-family); color: #333;
+            margin: 0; font-family: var(--font-family); color: #130027;
             background: url('images/fond.png') fixed center/cover no-repeat;
         }
 
@@ -98,6 +98,10 @@
         @media (max-width: 650px) {
             .grid-box { grid-template-columns: 1fr; } /* Passage en 1 colonne sur petit mobile */
         }
+        
+        .qr-container { position: absolute; bottom: 20px; right: 20px; text-align: center; }
+        .qr-code { width: 100px; height: 100px; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .qr-label { display: block; font-size: 10px; color: var(--main-color); margin-top: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -136,7 +140,35 @@
         <section id="presentation">
             <div class="glass-panel">
                 <h2>Présentation</h2>
-                <p>L'Association du Counseling Biblique (ACB) œuvre pour la promotion du soin de l'âme à travers les Écritures. Nous croyons que la Parole de Dieu est suffisante pour répondre aux besoins profonds du cœur humain.</p>
+                <p>Notre mission est de restaurer la place centrale de Christ dans l'accompagnement de l'âme et de redonner au counseling biblique ses lettres de noblesse au sein de chaque église locale. Nous croyons que le soin spirituel n'est pas une option, mais un ministère vital de la Parole.</p>
+
+                <div class="grid-box">
+                    <div class="card" style="border-top-color: var(--c1);">
+                        <h3>QUOI ?</h3>
+                        <ul>
+                            <li>La parole de Dieu est suffisante pour instruire tout homme en toute sagesse et en sainteté. Le counseling biblique vise à connecter l'Évangile de manière personnelle, pratique et pertinente à la vie de chacun de ses enfants.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" style="border-top-color: var(--c2);">
+                        <h3>COMMENT ?</h3>
+                        <ul>
+                            <li>En étant ancré dans la Parole</li>
+                            <li>En étant centré sur Christ</li>
+                            <li>En ayant une bonne théologie</li>
+                            <li>En dépendant du St.-Esprit</li>
+                            <li>En dépendant de la pière</li>
+                            <li>En dirigeant vers la sanctification</li>
+                            <li>En étant enraciné dans l'église</li>
+                            <li>En étant fondé sur l'amour</li>
+                            <li>En travaillant sur le coeur</li>
+                            <li>En étant minutieux</li>
+                            <li>En étant partique/pertinent</li>
+                            <li>En visant l'annonce de l'évangile</li>
+                        </ul>
+                        <p style="text-align:left; font-size: 0.95em; font-style: italic;">Objectif : Envisager un ministère de counseling biblique dans un centre / dans l'église local.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -174,7 +206,7 @@
         <section id="soutien">
             <div class="glass-panel">
                 <h2>Le soutien aux églises</h2>
-                <p style="text-align:left; font-size: 0.95em; font-style: italic;">Accompagner par des évaluation :</p>
+                <p style="text-align:left; font-size: 0.95em; font-style: italic;">Accompagner par des évaluations :</p>
                 <div class="grid-box">
                     <div class="card" style="border-top-color: var(--c1);">
                         <h3>Couples pastoraux / anciens</h3>
@@ -216,7 +248,7 @@
                             <li>Lutte contre le péché</li>
                             <li>Restauration des relations</li>
                             <li>Rejet / échec / injustice</li>
-                            <liDeuil / séparation</li>
+                            <li>Deuil / séparation</li>
                         </ul>
                     </div>
                     <div class="card" style="border-top-color: var(--c3);">
@@ -240,7 +272,18 @@
         <section id="soutenir">
             <div class="glass-panel">
                 <h2>Nous soutenir</h2>
-                <p>L'ACB vit de vos dons. Votre générosité permet de financer la traduction de ressources et la formation de nouveaux conseillers.</p>
+                <p>L'ACB vit grâce à vous, mais comment pouvez vous nous accompagner ou nous soutenir ?</p>
+                    <ul>
+                        <li>En devenant des partenaires de prière</li>
+                        <li>En référant des membres de vos assemblées au centre</li>
+                        <li>En encourageant les membres de vos assamblées à se faire former</li>
+                        <li>En utilisant le "bouche-à-oreille"</li>
+                        <li>En aidant financièrement pour soutenir le développement</li>
+                    </ul>
+
+                <div class="qr-container">
+                    <img src="../images/QR_dons.png" alt="QR_dons" class="qr-code">
+                </div>
             </div>
         </section>
 
@@ -250,17 +293,26 @@
         <div class="contact-container">
             <div class="contact-column">
                 <h3>Contact</h3>
-                <a href="#">🌐 counselingbiblique.org</a>
-                <p>👤 David Bouvier</p>
-                <a href="mailto:info@counselingbiblique.org">✉ info@counselingbiblique.org</a>
+                <a href="https://www.counselingbiblique.org" target="_blank"><span class="icon">🌐</span> counselingbiblique.org</a>
+                <p><span class="icon">👤</span> David Bouvier</p>
+                <a href="mailto:info@counselingbiblique.org"><span class="icon">✉</span> info@counselingbiblique.org</a>
+                <a href="tel:+41764834056"><span class="icon">📱</span> +41 76 483 40 56</a>
             </div>
+
             <div class="contact-column">
-                <h3>Centre</h3>
-                <p><strong>Action Biblique</strong><br>Rue de la Servette 21, Genève</p>
+                <h3>Centre de counseling</h3>
+                <div class="address-stack">
+                    <strong>Eglise Action Biblique</strong>
+                    <span>Rue de la Servette 21, 1201 Genève</span>
+                </div>
             </div>
+
             <div class="contact-column">
-                <h3>Siège</h3>
-                <p><strong>ACB Suisse</strong><br>Route de la Capite 120, Vandoeuvres</p>
+                <h3>Siège social</h3>
+                <div class="address-stack">
+                    <strong>ACB Suisse</strong>
+                    <span>Route de la Capite 120, 1253 Vandoeuvres</span>
+                </div>
             </div>
         </div>
     </footer>
