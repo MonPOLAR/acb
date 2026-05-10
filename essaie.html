@@ -16,7 +16,7 @@
             --bg-glass: rgba(255, 255, 255, 0.95);
             --font-family: 'Metropolis';
             /* Couleurs des bordures Accompagnement */
-            --c1: #ed6d5f; --c2: #791f73; --c3: #e94b54; --c4: #af2e68;
+            --c1: #ed6d5f; --c2: #791f73; --c3: #af2e68; --c4: #e94b54;
         }
 
         html { scroll-behavior: smooth; }
@@ -282,7 +282,7 @@
                     </ul>
 
                 <div class="qr-container">
-                    <img src="../images/QR_dons.png" alt="QR_dons" class="qr-code">
+                    <img src="../images/QR_dons.png" class="qr-code">
                 </div>
             </div>
         </section>
@@ -318,8 +318,6 @@
     </footer>
 
     <script>
-        // Fermeture automatique du menu mobile lors du clic sur un lien réel
-        const menuCheck = document.getElementById('mobile-menu-check');
         const navLinks = document.querySelectorAll('.nav-links a');
 
         navLinks.forEach(link => {
