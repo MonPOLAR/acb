@@ -142,6 +142,38 @@
         padding-bottom: 40px;
     }
 }
+
+        .comment-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crée deux colonnes égales */
+    gap: 10px 20px; /* Espace entre les lignes et les colonnes */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-list li {
+    font-size: 0.95em;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Ajout de la puce personnalisée car list-style est désactivé par le grid */
+.comment-list li::before {
+    content: "•";
+    color: var(--accent-color); /* Utilisez votre variable de couleur orange/rose */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Responsive : repasser sur une seule colonne sur petit écran */
+@media (max-width: 768px) {
+    .comment-list {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
@@ -186,13 +218,13 @@
                     <div class="card" style="border-top-color: var(--c1);">
                         <h3>QUOI ?</h3>
                         <ul>
-                            <li>La parole de Dieu est suffisante pour instruire tout homme en toute sagesse et en sainteté. Le counseling biblique vise à connecter l'Évangile de manière personnelle, pratique et pertinente à la vie de chacun de ses enfants.</li>
+                            <p>La parole de Dieu est suffisante pour instruire tout homme en toute sagesse et en sainteté. Le counseling biblique vise à connecter l'Évangile de manière personnelle, pratique et pertinente à la vie de chacun de ses enfants.</p>
                         </ul>
                     </div>
 
-                    <div class="card" style="border-top-color: var(--c2);">
+                    <div class="box box-comment" style="border-top-color: var(--c2);">
                         <h3>COMMENT ?</h3>
-                        <ul>
+                        <ul class="comment-list">
                             <li>En étant ancré dans la Parole</li>
                             <li>En étant centré sur Christ</li>
                             <li>En ayant une bonne théologie</li>
