@@ -142,22 +142,22 @@
         padding-bottom: 40px;
     }
 }
+        
+    .comment-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Crée deux colonnes égales */
+        gap: 10px 20px; /* Espace entre les lignes et les colonnes */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        .comment-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crée deux colonnes égales */
-    gap: 10px 20px; /* Espace entre les lignes et les colonnes */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.comment-list li {
-    font-size: 0.95em;
-    line-height: 1.4;
-    position: relative;
-    padding-left: 20px;
-}
+    .comment-list li {
+        font-size: 0.95em;
+        line-height: 1.4;
+        position: relative;
+        padding-left: 20px;
+    }
 
 /* Ajout de la puce personnalisée car list-style est désactivé par le grid */
 .comment-list li::before {
@@ -173,6 +173,29 @@
     .comment-list {
         grid-template-columns: 1fr;
     }
+}
+.comment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.comment-grid li {
+    font-size: 0.9em;
+    position: relative;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.comment-grid li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
     </style>
 </head>
@@ -222,7 +245,7 @@
                         </ul>
                     </div>
 
-                    <div class="box box-comment" style="border-top-color: var(--c2);">
+                    <div class="card" style="border-top-color: var(--c2);">
                         <h3>COMMENT ?</h3>
                         <ul class="comment-list">
                             <li>En étant ancré dans la Parole</li>
