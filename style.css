@@ -11,6 +11,31 @@
 @font-face {
     font-family: 'Metropolis';
     src: url('fonts/Metropolis-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Variantes bold/italic : le navigateur reste sur Metropolis
+   sans substituer une autre police */
+@font-face {
+    font-family: 'Metropolis';
+    src: url('fonts/Metropolis-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('fonts/Metropolis-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('fonts/Metropolis-RegularItalic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
 }
 
 :root {
@@ -38,8 +63,18 @@ html {
 body {
     margin: 0;
     font-family: var(--font-family);
-    color: #130027;
+    color: var(--main-color);
     background: url('images/fond.png') fixed center / cover no-repeat;
+}
+
+/* ── Police universelle : tout le site en Metropolis Regular #130027 ── */
+*, *::before, *::after {
+    font-family: var(--font-family) !important;
+}
+
+/* Titres : toujours #130027 */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--main-color) !important;
 }
 
 
@@ -348,6 +383,18 @@ footer#contact {
 .address-stack {
     display: flex;
     flex-direction: column;
+    gap: 6px;
+}
+
+.address-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.address-link:hover {
+    color: var(--main-color);
 }
 
 .icon {
