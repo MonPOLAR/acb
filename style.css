@@ -1,1 +1,453 @@
+/* ============================================================
+   ACB - Association du Counseling Biblique
+   Fichier : style.css
+   ============================================================ */
 
+
+/* ────────────────────────────────────────────────────────────
+   1. POLICES & VARIABLES GLOBALES
+   ──────────────────────────────────────────────────────────── */
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('fonts/Metropolis-Regular.woff2') format('woff2');
+}
+
+:root {
+    --main-color:   #130027;
+    --accent-color: #130027;
+    --bg-glass:     rgba(255, 255, 255, 0.95);
+    --font-family:  'Metropolis', sans-serif;
+
+    /* Couleurs de bordure des cards Accompagnement */
+    --c1: #ed6d5f;
+    --c2: #791f73;
+    --c3: #af2e68;
+    --c4: #e94b54;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. RESET & BASE
+   ──────────────────────────────────────────────────────────── */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: #130027;
+    background: url('images/fond.png') fixed center / cover no-repeat;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   3. NAVIGATION
+   ──────────────────────────────────────────────────────────── */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Logo */
+.logo-box {
+    position: absolute;
+    left: 40px;
+}
+
+.logo-box img {
+    height: 35px;
+}
+
+/* Liens de navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   4. DROPDOWN "MISSION"
+   ──────────────────────────────────────────────────────────── */
+
+.nav-item {
+    position: relative;
+}
+
+/* Checkboxes de contrôle (cachées) */
+#mission-toggle,
+#mobile-menu-check {
+    display: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-glass);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    margin-top: 10px;
+    list-style: none;
+}
+
+#mission-toggle:checked ~ .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item a {
+    text-decoration: none;
+    color: var(--main-color);
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+}
+
+.dropdown-item a:hover {
+    color: var(--accent-color);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   5. MISE EN PAGE PRINCIPALE
+   ──────────────────────────────────────────────────────────── */
+
+.main-column {
+    width: 55%;
+    margin: 0 auto;
+    padding-top: 140px;
+}
+
+section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+/* Panneau en verre */
+.glass-panel {
+    background: var(--bg-glass);
+    padding: 50px 40px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Titres & textes */
+h2 {
+    color: var(--main-color);
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    line-height: 1.8;
+    color: #444;
+    text-align: center;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   6. GRILLE GÉNÉRIQUE & CARDS
+   ──────────────────────────────────────────────────────────── */
+
+.grid-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 5px solid var(--main-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    color: var(--main-color);
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+.card ul {
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.95em;
+    margin: 10px 0;
+}
+
+.card li {
+    margin-bottom: 8px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   7. SECTION "NOUS SOUTENIR" — QR CODE
+   ──────────────────────────────────────────────────────────── */
+
+.panel-soutenir {
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.qr-container {
+    position: absolute;
+    bottom: 25px;
+    right: 40px;
+    text-align: center;
+}
+
+.qr-code {
+    width: 90px;
+    height: 90px;
+    background: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qr-label {
+    display: block;
+    font-size: 10px;
+    color: var(--main-color);
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   8. LISTE EN 2 COLONNES (commentaires / points)
+   ──────────────────────────────────────────────────────────── */
+
+.comment-list,
+.comment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-grid {
+    margin-top: 20px;
+}
+
+.comment-list li,
+.comment-grid li {
+    font-size: 0.95em;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.comment-grid li {
+    font-size: 0.9em;
+    padding-left: 15px;
+}
+
+/* Puce personnalisée */
+.comment-list li::before,
+.comment-grid li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   9. FOOTER / CONTACT
+   ──────────────────────────────────────────────────────────── */
+
+footer#contact {
+    background-color: white;
+    padding: 80px 0;
+    margin-top: 100px;
+    border-top: 1px solid #eee;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.contact-column {
+    flex: 1;
+}
+
+.contact-column h3 {
+    color: var(--main-color);
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.contact-column a,
+.contact-column p {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.address-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    width: 20px;
+    text-align: center;
+    color: var(--main-color);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   10. RESPONSIVE
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+    .main-column {
+        width: 90%;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Hamburger menu */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--main-color);
+        transition: 0.3s;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    #mobile-menu-check:checked ~ nav {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 18px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        width: 100%;
+        padding: 10px 0;
+        background: #f9f9f9;
+    }
+
+    /* Footer mobile */
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* QR code redevient statique */
+    .qr-container {
+        position: static;
+        margin: 20px auto 0;
+        text-align: center;
+    }
+
+    .panel-soutenir {
+        padding-bottom: 40px;
+    }
+
+    /* Listes en 1 colonne */
+    .comment-list,
+    .comment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    /* Grille cards en 1 colonne */
+    .grid-box {
+        grid-template-columns: 1fr;
+    }
+}
