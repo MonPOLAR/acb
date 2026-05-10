@@ -26,10 +26,10 @@
         }
 
         /* 2. NAVIGATION */
-        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .navbar-container { display: flex; align-items: center; justify-content: center; padding: 0 40px; max-width: 1400px; margin: 0 auto; position: relative; }
         .logo-box { position: absolute; left: 40px; }
-        .logo-box img { height: 45px; }
+        .logo-box img { height: 35px; }
 
         .nav-links { display: flex; list-style: none; gap: 30px; padding: 0; margin: 0; }
         .nav-link { text-decoration: none; color: var(--main-color); font-size: 15px; font-weight: 500; transition: 0.3s; cursor: pointer; }
@@ -102,9 +102,46 @@
             .grid-box { grid-template-columns: 1fr; } /* Passage en 1 colonne sur petit mobile */
         }
         
-        .qr-container { position: absolute; bottom: 20px; right: 20px; text-align: center; }
-        .qr-code { width: 100px; height: 100px; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .qr-label { display: block; font-size: 10px; color: var(--main-color); margin-top: 5px; font-weight: bold; }
+.panel-soutenir {
+    position: relative;
+    padding-bottom: 60px; /* Espace pour ne pas que le texte cache le QR code sur petit écran */
+}
+
+.qr-container {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    text-align: center;
+}
+
+.qr-code {
+    width: 90px; /* Taille légèrement réduite pour mieux s'intégrer */
+    height: 90px;
+    background: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.qr-label {
+    display: block;
+    font-size: 10px;
+    color: var(--main-color);
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Ajustement pour mobile pour que le QR code ne dépasse pas */
+@media (max-width: 768px) {
+    .qr-container {
+        position: static; /* Reprend sa place normale sous le texte */
+        margin: 20px auto 0;
+        text-align: center;
+    }
+    .panel-soutenir {
+        padding-bottom: 40px;
+    }
+}
     </style>
 </head>
 <body>
