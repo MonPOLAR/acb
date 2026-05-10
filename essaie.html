@@ -73,11 +73,14 @@
         .card li { margin-bottom: 8px; }
 
         /* 4. FOOTER */
-        footer { background: white; padding: 80px 0; margin-top: 100px; border-top: 1px solid #eee; }
+       footer#contact { background-color: white; padding: 80px 0; margin-top: 100px; border-top: 1px solid #eee; }
         .contact-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; gap: 40px; padding: 0 20px; }
-        .contact-column h3 { color: var(--main-color); font-size: 18px; margin-bottom: 20px; }
-        .contact-column a, .contact-column p { display: flex; gap: 12px; text-decoration: none; color: #555; font-size: 14px; margin: 12px 0; }
-
+        .contact-column { flex: 1; }
+        .contact-column h3 { color: var(--main-color); margin-bottom: 25px; font-size: 18px; }
+        .contact-column a, .contact-column p { display: flex; align-items: flex-start; gap: 12px; text-decoration: none; color: #555; font-size: 14px; margin: 12px 0; }
+        .address-stack { display: flex; flex-direction: column; }
+        .icon { width: 20px; text-align: center; color: var(--main-color); }
+        
         /* 5. MOBILE RESPONSIVE */
         @media (max-width: 1100px) { .main-column { width: 90%; } }
         
@@ -282,7 +285,7 @@
                     </ul>
 
                 <div class="qr-container">
-                    <img src="/images/QR_dons.png" class="qr-code">
+                    <img src="images/QR_dons.png" alt="QR_dons" class="qr-code">
                 </div>
             </div>
         </section>
