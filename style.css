@@ -64,7 +64,17 @@ body {
     margin: 0;
     font-family: var(--font-family);
     color: var(--main-color);
-    background: url('images/fond.png') fixed center / cover no-repeat;
+    background: none;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url('images/fond.png') center / cover no-repeat;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 /* ── Police universelle : tout le site en Metropolis Regular #130027 ── */
@@ -171,7 +181,6 @@ header {
 .dropdown-item a {
     text-decoration: none;
     color: var(--main-color);
-    position: absolute;
     display: block;
     padding: 8px 0;
     font-size: 15px;
@@ -462,5 +471,95 @@ footer#contact {
     /* Grille cards en 1 colonne */
     .grid-box {
         grid-template-columns: 1fr;
+    }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   11. ICÔNES DE SECTION
+   ──────────────────────────────────────────────────────────── */
+
+.section-icon {
+    height: 1.1em;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+    position: relative;
+    top: -2px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   12. ACCOMPAGNEMENT — blocs info + bouton RDV
+   ──────────────────────────────────────────────────────────── */
+
+.accomp-info-row {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.accomp-info-block {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.accomp-info-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.accomp-info-block li {
+    font-size: 0.95em;
+    color: #555;
+    padding: 5px 0 5px 18px;
+    position: relative;
+}
+
+.accomp-info-block li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.accomp-rdv {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.accomp-rdv p {
+    font-size: 1.05em;
+    color: #444;
+    margin-bottom: 14px;
+}
+
+.btn-rdv {
+    display: inline-block;
+    background: var(--main-color);
+    color: white !important;
+    text-decoration: none;
+    padding: 13px 35px;
+    border-radius: 30px;
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 4px 14px rgba(19,0,39,0.25);
+}
+
+.btn-rdv:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 650px) {
+    .accomp-info-row {
+        flex-direction: column;
     }
 }
