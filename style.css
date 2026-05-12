@@ -73,7 +73,7 @@ body::before {
     position: fixed;
     inset: 0;
     background: url('images/fond.png') center / cover no-repeat;
-    opacity: 0.5;
+    opacity: 0.25;
     z-index: -1;
 }
 
@@ -486,9 +486,9 @@ footer#contact {
 
 .section-picto {
     position: absolute;
-    top: 18px;
-    left: 22px;
-    height: 72px;
+    top: 20px;
+    left: 25px;
+    height: 150px;
     width: auto;
     opacity: 0.9;
 }
