@@ -73,7 +73,7 @@ body::before {
     position: fixed;
     inset: 0;
     background: url('images/fond.png') center / cover no-repeat;
-    opacity: 0.25;
+    opacity: 0.5;
     z-index: -1;
 }
 
@@ -472,6 +472,18 @@ footer#contact {
     .grid-box {
         grid-template-columns: 1fr;
     }
+
+    /* Picto : au-dessus du titre, centré — on annule l'absolu */
+    .glass-panel {
+        position: static;
+    }
+
+    .section-picto {
+        position: static;
+        display: block;
+        margin: 0 auto 15px;
+        height: 60px;
+    }
 }
 
 
@@ -486,9 +498,9 @@ footer#contact {
 
 .section-picto {
     position: absolute;
-    top: 15px;
-    left: 25px;
-    height: 150px;
+    top: 18px;
+    left: 22px;
+    height: 72px;
     width: auto;
     opacity: 0.9;
 }
