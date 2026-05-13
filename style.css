@@ -440,6 +440,11 @@ footer#contact {
         background: #f9f9f9;
     }
 
+    .dropdown-item a {
+        text-align: center;
+        padding: 10px 0;
+    }
+
     /* Footer mobile */
     .contact-container {
         flex-direction: column;
@@ -592,6 +597,11 @@ footer#contact {
     flex-shrink: 0;
     opacity: 0.85;
     transition: opacity 0.2s;
+}
+
+/* Logo IBG légèrement plus grand pour équilibrer les tailles de texte */
+.logo-partenaire:first-child {
+    height: 68px;
 }
 
 .logo-partenaire:hover {
